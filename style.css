@@ -1,0 +1,371 @@
+/* 基本スタイル */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    line-height: 1.7;
+    margin: 0;
+    padding: 15px; /* スマホ用に左右の余白を少し減らす */
+    background-image: 
+        url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMzMzMzMzMiIGZpbGwtb3BhY2l0eT0iMC4yIj48cGF0aCBkPSJNMjAgMTAuOTk5Mjg0NWEzLjAwMSAzLjAwMSAwIDAgMSA2IDBWMjBIMTBhMTAuMDAxIDEwLjAwMSAwIDAgMCAxMC05LjAwMDcxNTMzWiIvPjxwYXRoIGQyMCIxMC45OTkyODQ1YTMuMDAxIDMuMDAxIDAgMCAxNiAwVjIwSDEwYTEwLjAwMSAxMC4wMDEgMCAwIDAxMC05LjAwMDcxNTMzWiIvPjxwYXRoIGQ9Ik0wIDEwLjAwMDcxNTMzYTMuMDAxIDMuMDAxIDAgMCAxNiAwVjIwSDBhMTAuMDAxIDEwLjAwMSAwIDAgMTAtOS4wMDA3MTUzM1oiLz48L2c+PC9nPjwvc3ZnPg=='),
+        linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+        url('https://www.transparenttextures.com/patterns/lined-paper.png');
+    background-blend-mode: multiply;
+}
+.container {
+    max-width: 750px;
+    margin: 0 auto;
+    background-color: #2a2a2a;
+    padding: 1.5em; /* スマホ用に少し余白を調整 */
+    border-radius: 4px;
+    box-shadow: 
+        0 0 15px rgba(0, 255, 0, 0.4),
+        0 0 30px rgba(93, 58, 155, 0.3) inset;
+    border: 1px solid #3d3d3d;
+}
+h1, h2, h3 {
+    color: #00ff00;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.6);
+    font-family: 'M PLUS 1 Code', monospace;
+    text-transform: uppercase;
+}
+h1 { 
+    font-size: 2.2em; 
+    text-align: center;
+    border-bottom: 2px solid #3d3d3d;
+    padding-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 1.2em;
+}
+h2 { 
+    font-size: 1.6em; 
+    border-bottom: 1px dashed #555;
+    padding-bottom: 8px;
+    margin-top: 2em;
+}
+h3 { 
+    font-size: 1.2em; 
+    color: #e0e0e0; 
+    border-left: 3px solid #5d3a9b;
+    padding-left: 12px;
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+}
+p.description {
+    text-align: center;
+    background-color: #3a3a3a;
+    padding: 1.2em;
+    border-radius: 2px;
+    border: 1px solid #555;
+    font-style: italic;
+    color: #ccc;
+    margin-bottom: 2em;
+}
+
+/* フォーム関連 */
+fieldset {
+    border: 1px solid #555;
+    border-radius: 2px;
+    margin-bottom: 1.8em;
+    padding: 1em;
+    background-color: #2f2f2f;
+}
+legend {
+    font-weight: bold;
+    color: #00ff00;
+    padding: 0.2em 0.8em;
+    font-size: 1.1em;
+    background-color: #2a2a2a;
+    border: 1px solid #00ff00;
+    text-shadow: 0 0 3px rgba(0, 255, 0, 0.6);
+}
+label {
+    display: block;
+    margin-bottom: 0.9em;
+    color: #e0e0e0;
+}
+input[type="number"] {
+    width: 60px;
+    padding: 6px;
+    border: 1px solid #555;
+    border-radius: 2px;
+    margin: 0 5px;
+    background-color: #3a3a3a;
+    color: #00ff00;
+    font-family: 'M PLUS 1 Code', monospace;
+}
+input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: #5d3a9b;
+}
+
+/* === ▼ モバイルファーストなフォームデザイン ▼ === */
+.form-section {
+    margin: 1.5em 0.5em;
+}
+.section-label {
+    font-size: 1em;
+    color: #ccc;
+    margin-bottom: 0.8em;
+    display: block;
+}
+
+/* 人数入力 */
+.person-counter {
+    display: flex;
+    gap: 1em;
+}
+.person-input-group {
+    flex: 1;
+    background-color: #3a3a3a;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    border: 1px solid #555;
+}
+.person-input-group label {
+    display: block;
+    margin-bottom: 0.3em;
+    font-size: 0.8em;
+    color: #ccc;
+    text-align: left;
+}
+.input-wrapper {
+    display: flex;
+    align-items: center;
+}
+.input-wrapper input[type="number"] {
+    width: 100%;
+    text-align: right;
+    padding: 0.2em 0.5em 0.2em 0;
+    margin: 0;
+    border: none;
+    background: none;
+    font-size: 1.5em;
+    -moz-appearance: textfield; /* Firefox */
+}
+.input-wrapper input[type="number"]::-webkit-inner-spin-button,
+.input-wrapper input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.input-wrapper span {
+    font-size: 1.1em;
+    padding-left: 0.5em;
+}
+
+/* 住居タイプ選択 */
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em;
+}
+.radio-option {
+    background-color: #3a3a3a;
+    border: 1px solid #555;
+    padding: 0.8em 1em;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+}
+.radio-option input[type="radio"] {
+    margin-right: 1em;
+    width: 1.2em;
+    height: 1.2em;
+    accent-color: #5d3a9b;
+}
+.radio-option label {
+    margin-bottom: 0;
+}
+/* === ▲ モバイルファーストなフォームデザイン ▲ === */
+
+.item-group {
+    margin-bottom: 1.2em;
+    padding: 0 0.5em;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 18px;
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #e0e0e0;
+    background-color: #5d3a9b;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
+    text-transform: uppercase;
+    box-shadow: 0 0 10px rgba(93, 58, 155, 0.8);
+    margin-top: 2em;
+}
+button:hover {
+    background-color: #4a2d7a;
+    box-shadow: 0 0 20px rgba(93, 58, 155, 1), 0 0 5px rgba(0, 255, 0, 0.5) inset;
+    transform: translateY(-2px);
+}
+
+/* 結果表示エリア */
+#result-area {
+    margin-top: 2.5em;
+    padding: 1.5em;
+    background-color: #2f2f2f;
+    border-radius: 4px;
+    border: 1px solid #555;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3) inset;
+}
+.result-title {
+    text-align: center;
+    font-size: 1.2em;
+    color: #bbb;
+    font-style: italic;
+}
+#bousai-title {
+    text-align: center;
+    font-size: 2.2em;
+    color: #8a63d2;
+    margin: 0.8em 0;
+    padding: 0.7em;
+    background-color: #1a1a1a;
+    border-radius: 2px;
+    border: 1px solid #5d3a9b;
+    text-shadow: 0 0 8px rgba(138, 99, 210, 0.8);
+    animation: slow-glow 3s infinite alternate;
+}
+@keyframes slow-glow {
+    from { text-shadow: 0 0 8px rgba(138, 99, 210, 0.7); opacity: 0.9; }
+    to { text-shadow: 0 0 16px rgba(138, 99, 210, 1); opacity: 1; }
+}
+.result-days {
+    text-align: center;
+    font-size: 1.5em;
+    color: #e0e0e0;
+}
+#survival-days {
+    font-size: 2.8em;
+    color: #00ff00;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+    font-family: 'M PLUS 1 Code', monospace;
+}
+.chart-container {
+    margin: 2.5em 0;
+    background-color: #1a1a1a;
+    padding: 1em;
+    border: 1px dashed #555;
+    box-shadow: 0 0 8px rgba(0, 255, 0, 0.2);
+}
+#shopping-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 1.5em;
+}
+#shopping-list li {
+    margin-bottom: 0.8em;
+    padding-left: 2em;
+    position: relative;
+    color: #ccc;
+}
+#shopping-list li::before {
+    content: '⚙️ ';
+    position: absolute;
+    left: 0;
+    color: #00ff00;
+}
+#shopping-list a {
+    text-decoration: none;
+    color: #00ff00;
+    font-weight: bold;
+    text-shadow: 0 0 3px rgba(0, 255, 0, 0.4);
+}
+#shopping-list a:hover {
+    text-decoration: underline;
+    color: #8a63d2;
+    text-shadow: 0 0 5px rgba(138, 99, 210, 0.6);
+}
+
+/* アドバイスリストのスタイル */
+.advice-list {
+    list-style: none;
+    padding: 1.5em;
+    margin: 1.5em 0;
+    background-color: #3a3a3a;
+    border-radius: 2px;
+    border: 1px dashed #777;
+    box-shadow: 0 0 8px rgba(93, 58, 155, 0.3);
+}
+.advice-list li {
+    margin-bottom: 1em;
+    line-height: 1.6;
+    padding-left: 2em;
+    position: relative;
+    color: #e0e0e0;
+}
+.advice-list li::before {
+    content: '👁️ ';
+    position: absolute;
+    left: 0;
+    color: #00ff00;
+}
+
+/* 背景情報セクション */
+.background-info {
+    margin: 3em 0;
+    padding: 1.5em;
+    background-color: #2f2f2f;
+    border-left: 5px solid #5d3a9b;
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(93, 58, 155, 0.4);
+}
+.background-info h3 {
+    border: none;
+    padding-left: 0;
+    margin-top: 0;
+    color: #e0e0e0;
+}
+.background-info p {
+    font-size: 0.95em;
+    line-height: 1.8;
+    color: #ccc;
+}
+
+#tweet-button {
+    display: block;
+    width: 80%;
+    margin: 2.5em auto 0;
+    padding: 15px;
+    text-align: center;
+    background-color: #00ff00;
+    color: #1a1a1a;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 2px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    text-transform: uppercase;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+}
+#tweet-button:hover {
+    background-color: #00cc00;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 1.2), 0 0 5px rgba(138, 99, 210, 0.8) inset;
+}
+
+/* 広告と免責事項のスタイル */
+#ad-space {
+    margin: 2.5em 0;
+    padding: 1.5em;
+    background-color: #2a2a2a;
+    border: 1px dashed #777;
+    border-radius: 2px;
+    text-align: center;
+    color: #888;
+    font-style: italic;
+}
+.disclaimer {
+    text-align: center;
+    font-size: 0.85em;
+    color: #777;
+    max-width: 700px;
+    margin: 2.5em auto 0;
+    padding-top: 1.5em;
+    border-top: 1px dashed #555;
+    font-style: italic;
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bous-AI 防災診断</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Bous-AI</h1>
+        <p class="description">
+            もしもの時、あなたの備えは万全ですか？<br>
+            外部からの供給が途絶えた場合、自宅の備蓄だけでどれだけ快適に生活できるか、ゲーム感覚で診断してみましょう！
+        </p>
+        <div id="input-form">
+            <fieldset>
+                <legend>STEP 1: あなたについて教えてください</legend>
+                
+                <div class="form-section">
+                    <label class="section-label">生活する人数</label>
+                    <div class="person-counter">
+                        <div class="person-input-group">
+                            <label for="adults">大人</label>
+                            <div class="input-wrapper">
+                                <input type="number" id="adults" value="1" min="0">
+                                <span>人</span>
+                            </div>
+                        </div>
+                        <div class="person-input-group">
+                            <label for="children">子ども</label>
+                            <div class="input-wrapper">
+                                <input type="number" id="children" value="0" min="0">
+                                <span>人</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <label class="section-label">お住まいのタイプ</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" name="housing" id="house" value="戸建て" checked>
+                            <label for="house">戸建て</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="housing" id="apartment" value="マンション">
+                            <label for="apartment">マンション</label>
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+            <fieldset>
+                <legend>STEP 2: あなたの備えを教えてください</legend>
+                <div class="item-group">
+                    <h3>💧 食料・水</h3>
+                    <label>飲料水: <input type="number" id="water" value="0" min="0"> L</label>
+                    <label>食料 (1人1日3食換算): <input type="number" id="food" value="0" min="0"> 食分</label>
+                    <label><input type="checkbox" id="purifier"> 🏞️ 携帯浄水器・浄水タブレット</label>
+                </div>
+                <div class="item-group">
+                    <h3>🧼 衛生</h3>
+                    <label>トイレットペーパー: <input type="number" id="toilet-paper" value="0" min="0"> ロール</label>
+                    <label><input type="checkbox" id="portable-toilet"> 🚽 簡易・携帯トイレ</label>
+                    <label><input type="checkbox" id="wet-wipes"> 拭き取りシート (体・顔)</label>
+                    <label><input type="checkbox" id="toothbrush"> 🪥 歯磨きシート・口腔ケア用品</label>
+                    <label><input type="checkbox" id="soap"> 🧴 石鹸・アルコール消毒液</label>
+                    <label><input type="checkbox" id="dry-shampoo"> 💧 ドライシャンプー</label>
+                    <label><input type="checkbox" id="mask"> 😷 マスク</label>
+                </div>
+                <div class="item-group">
+                    <h3>🔦 電力・照明・情報</h3>
+                    <label><input type="checkbox" id="battery"> 🔋 モバイルバッテリー (10000mAh以上)</label>
+                    <label><input type="checkbox" id="flashlight"> 🔦 懐中電灯・ヘッドライト</label>
+                    <label><input type="checkbox" id="dry-cell"> 🔋 乾電池 (懐中電灯用など)</label>
+                    <label><input type="checkbox" id="radio"> 📻 手回し充電ラジオなど</label>
+                </div>
+                <div class="item-group">
+                    <h3>⛑️ 快適・安全</h3>
+                    <label><input type="checkbox" id="gas-stove"> 🔥 カセットコンロ・ボンベ</label>
+                    <label><input type="checkbox" id="first-aid"> 🩹 救急セット (絆創膏・消毒液など)</label>
+                    <label><input type="checkbox" id="gloves"> 🧤 軍手・作業用手袋</label>
+                    <label><input type="checkbox" id="sleeping-bag"> 😴 寝袋・毛布・アルミシート</label>
+                    <label><input type="checkbox" id="medicine"> 💊 常備薬</label>
+                    <label><input type="checkbox" id="saran-wrap"> ✨ サランラップ・アルミホイル</label>
+                    <label><input type="checkbox" id="gum-tape"> 🩹 テープ類 (ガムテ・養生テープ)</label>
+                    <label><input type="checkbox" id="cash"> 💵 現金 (小銭多め)</label>
+                    <label><input type="checkbox" id="ear-plugs"> 🎧 アイマスク・耳栓</label>
+                    <label><input type="checkbox" id="entertainment"> 🃏 娯楽品 (本・トランプなど)</label>
+                </div>
+            </fieldset>
+            <button onclick="diagnose()">診断する</button>
+        </div>
+
+        <div id="result-area" style="display:none;">
+            <h2>診断結果</h2>
+            <p class="result-title">あなたの防災タイプは...</p>
+            <h3 id="bousai-title"></h3>
+            <p class="result-days">生存可能日数は... <strong id="survival-days">0</strong> 日です！</p>
+            <div class="chart-container">
+                <canvas id="radar-chart"></canvas>
+            </div>
+
+            <h3>改善点サマリー</h3>
+            <ul id="advice-list" class="advice-list"></ul>
+
+            <h3>あなた専用お買い物リスト</h3>
+            <ul id="shopping-list"></ul>
+            
+            <div class="background-info">
+                <h3>なぜ今、備えが必要なのか？</h3>
+                <p>日本の食料自給率は先進国の中でも極めて低く、世界の物流がストップした場合、最も飢餓に陥りやすい国の一つと言われています。ある研究では、世界的な物流停止で発生する餓死者の約3割が日本に集中するという衝撃的な予測も。これは遠い未来の話ではありません。世界的な食料危機や紛争、大規模災害など、私たちの生活を支える物流は常にリスクに晒されています。この診断をきっかけに、今一度ご家庭の備えを見直してみませんか。</p>
+            </div>
+
+            <h3>💡 おすすめ防災グッズ</h3>
+            <div id="ad-space">
+                <p style="color: #888;">（ここにAmazonの広告が表示されます）</p>
+            </div>
+            <a id="tweet-button" href="#" target="_blank" rel="noopener noreferrer">結果をシェアする</a>
+        </div>
+    </div>
+    <footer class="disclaimer">
+        <p>※本診断は防災意識向上のための目安です。診断結果の正確性を保証するものではなく、いかなる損害についても一切の責任を負いません。</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
