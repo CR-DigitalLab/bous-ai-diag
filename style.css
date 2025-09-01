@@ -115,13 +115,10 @@ input[type="checkbox"] {
     display: block;
 }
 
-/* 人数・ペット入力 */
+/* 人数入力 */
 .person-counter {
     display: flex;
     gap: 1em;
-}
-.pet-counter {
-    margin-top: 1em;
 }
 .person-input-group {
     flex: 1;
@@ -159,30 +156,6 @@ input[type="checkbox"] {
 .input-wrapper span {
     font-size: 1.1em;
     padding-left: 0.5em;
-}
-
-/* 住居タイプ選択 */
-.radio-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8em;
-}
-.radio-option {
-    background-color: #3a3a3a;
-    border: 1px solid #555;
-    padding: 0.8em 1em;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-}
-.radio-option input[type="radio"] {
-    margin-right: 1em;
-    width: 1.2em;
-    height: 1.2em;
-    accent-color: #5d3a9b;
-}
-.radio-option label {
-    margin-bottom: 0;
 }
 
 /* アコーディオンUIのスタイル */
@@ -284,7 +257,7 @@ button:hover {
 
 /* 称号画像 */
 #bousai-title-image-container {
-    text-align: center;
+    text-align: center; /* 画像を中央揃えにする */
     margin: 1.5em 0 1em 0;
 }
 #bousai-title-image {
@@ -356,6 +329,13 @@ button:hover {
     text-decoration: underline;
     color: #8a63d2;
     text-shadow: 0 0 5px rgba(138, 99, 210, 0.6);
+}
+
+.shopping-links {
+    margin-left: 1em;
+    display: inline-flex;
+    gap: 0.8em;
+    font-size: 0.9em;
 }
 
 /* アドバイスリストのスタイル */

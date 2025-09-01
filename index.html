@@ -20,7 +20,7 @@
                 <legend>STEP 1: あなたについて教えてください</legend>
 
                 <div class="form-section">
-                    <label class="section-label">生活する人数とペット</label>
+                    <label class="section-label">生活する人数</label>
                     <div class="person-counter">
                         <div class="person-input-group">
                             <label for="adults">大人</label>
@@ -37,36 +37,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="person-counter pet-counter">
-                        <div class="person-input-group">
-                            <label for="dogs">犬</label>
-                            <div class="input-wrapper">
-                                <input type="number" id="dogs" value="0" min="0">
-                                <span>匹</span>
-                            </div>
-                        </div>
-                        <div class="person-input-group">
-                            <label for="cats">猫</label>
-                            <div class="input-wrapper">
-                                <input type="number" id="cats" value="0" min="0">
-                                <span>匹</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-section">
-                    <label class="section-label">お住まいのタイプ</label>
-                    <div class="radio-group">
-                        <div class="radio-option">
-                            <input type="radio" name="housing" id="house" value="戸建て" checked>
-                            <label for="house">戸建て</label>
-                        </div>
-                        <div class="radio-option">
-                            <input type="radio" name="housing" id="apartment" value="マンション">
-                            <label for="apartment">マンション</label>
-                        </div>
-                    </div>
                 </div>
 
             </fieldset>
@@ -78,37 +48,51 @@
                         <label>飲料水: <input type="number" id="water" value="0" min="0"> L</label>
                         <label>食料 (1人1日3食換算): <input type="number" id="food" value="0" min="0"> 食分</label>
                         <label><input type="checkbox" id="purifier"> 🏞️ 携帯浄水器・浄水タブレット</label>
+                        <label><input type="checkbox" id="vitamins"> 💊 ビタミン剤/栄養補助食品</label>
                     </div>
                 </details>
-                <details class="item-group">
+                <details class="item-group" open>
                     <summary><h3>🧼 衛生</h3></summary>
                     <div class="details-content">
                         <label>トイレットペーパー: <input type="number" id="toilet-paper" value="0" min="0"> ロール</label>
                         <label><input type="checkbox" id="portable-toilet"> 🚽 簡易・携帯トイレ</label>
+                        <label><input type="checkbox" id="deodorizing-bags"> 💨 防臭袋 (BOSなど)</label>
+                        <label><input type="checkbox" id="garbage-bags"> 🗑️ 大容量ゴミ袋</label>
                         <label><input type="checkbox" id="wet-wipes"> 拭き取りシート (体・顔)</label>
                         <label><input type="checkbox" id="toothbrush"> 🪥 歯磨きシート・口腔ケア用品</label>
                         <label><input type="checkbox" id="soap"> 🧴 石鹸・アルコール消毒液</label>
                         <label><input type="checkbox" id="dry-shampoo"> 💧 ドライシャンプー</label>
                         <label><input type="checkbox" id="mask"> 😷 マスク</label>
+                        <label><input type="checkbox" id="towels"> 🧖 タオル・手ぬぐい</label>
+                        <label><input type="checkbox" id="nail-clippers"> 💅 爪切り・綿棒</label>
+                        <label><input type="checkbox" id="disposable-dishes"> 🍽️ 使い捨て食器・割り箸</label>
                     </div>
                 </details>
-                <details class="item-group">
+                <details class="item-group" open>
                     <summary><h3>🔦 電力・照明・情報</h3></summary>
                     <div class="details-content">
-                        <label><input type="checkbox" id="battery"> 🔋 モバイルバッテリー (10000mAh以上)</label>
+                        <label><input type="checkbox" id="power-station"> 🔋 ポータブル電源</label>
+                        <label><input type="checkbox" id="solar-charger"> ☀️ ソーラー充電器</label>
+                        <label><input type="checkbox" id="battery"> 🔋 モバイルバッテリー</label>
+                        <label><input type="checkbox" id="dry-cell"> 🔋 乾電池</label>
+                        <label><input type="checkbox" id="lantern"> 🏮 ランタン (LEDなど)</label>
                         <label><input type="checkbox" id="flashlight"> 🔦 懐中電灯・ヘッドライト</label>
-                        <label><input type="checkbox" id="dry-cell"> 🔋 乾電池 (懐中電灯用など)</label>
+                        <label><input type="checkbox" id="candles"> 🕯️ ろうそく・ライター</label>
                         <label><input type="checkbox" id="radio"> 📻 手回し充電ラジオなど</label>
+                        <label><input type="checkbox" id="whistle"> 🔊 ホイッスル (笛)</label>
                     </div>
                 </details>
-                <details class="item-group">
+                <details class="item-group" open>
                     <summary><h3>⛑️ 快適・安全</h3></summary>
                     <div class="details-content">
-                        <label><input type="checkbox" id="gas-stove"> 🔥 カセットコンロ・ボンベ</label>
-                        <label><input type="checkbox" id="first-aid"> 🩹 救急セット (絆創膏・消毒液など)</label>
-                        <label><input type="checkbox" id="gloves"> 🧤 軍手・作業用手袋</label>
-                        <label><input type="checkbox" id="sleeping-bag"> 😴 寝袋・毛布・アルミシート</label>
+                        <label><input type="checkbox" id="helmet"> 👷 ヘルメット・防災頭巾</label>
+                        <label><input type="checkbox" id="gas-stove"> 🔥 カセットコンロ</label>
+                        <label><input type="checkbox" id="gas-canisters"> 🔥 カセットボンベ</label>
+                        <label><input type="checkbox" id="water-tank"> 🚰 ポリタンク (給水用)</label>
+                        <label><input type="checkbox" id="first-aid"> 🩹 救急セット</label>
                         <label><input type="checkbox" id="medicine"> 💊 常備薬</label>
+                        <label><input type="checkbox" id="sleeping-bag"> 😴 寝袋・毛布・アルミシート</label>
+                        <label><input type="checkbox" id="gloves"> 🧤 軍手・作業用手袋</label>
                         <label><input type="checkbox" id="saran-wrap"> ✨ サランラップ・アルミホイル</label>
                         <label><input type="checkbox" id="gum-tape"> 🩹 テープ類 (ガムテ・養生テープ)</label>
                         <label><input type="checkbox" id="cash"> 💵 現金 (小銭多め)</label>
@@ -135,6 +119,7 @@
             <div class="chart-container">
                 <canvas id="radar-chart"></canvas>
             </div>
+            <a id="tweet-button" href="#" target="_blank" rel="noopener noreferrer">結果をシェアする</a>
 
             <h3>改善点サマリー</h3>
             <ul id="advice-list" class="advice-list"></ul>
@@ -186,7 +171,6 @@
                     <div id="msmaflink-9HgkP">リンク</div>
                     </div>
             </div>
-            <a id="tweet-button" href="#" target="_blank" rel="noopener noreferrer">結果をシェアする</a>
         </div>
     </div>
 
