@@ -167,33 +167,33 @@ function diagnose() {
         };
 
         const allItems = [
-            { condition: survivalDays >= 7, advice: "【最優先】水と食料が7日分に満たないようです。命に直結するため、何よりも先に備蓄しましょう。", item: { name: "備蓄水・食料 (7日分)", query: "防災 備蓄 食料 7日" } },
-            { condition: hasHelmet, advice: "【安全確保】地震時の落下物から頭を守るヘルメットは、命を守る最重要アイテムの一つです。", item: { name: "防災ヘルメット", query: "防災 ヘルメット" } },
-            { condition: hasPortableToilet, advice: "【衛生管理】災害時に最も深刻な問題の一つがトイレです。簡易トイレは衛生と尊厳を守る必需品です。", item: { name: "簡易トイレ", query: "防災 簡易トイレ" } },
-            { condition: hasPowerStation || hasBattery, advice: "【情報・電力】停電に備え、情報収集や連絡に必須のスマホを維持するため、ポータブル電源やモバイルバッテリーを準備しましょう。", item: { name: "ポータブル電源", query: "ポータブル電源 大容量" } },
-            { condition: hasRadio, advice: "【情報収集】スマホが使えない状況も想定し、電池不要の手回し充電ラジオで広域の情報を確保しましょう。", item: { name: "防災ラジオ", query: "防災ラジオ 手回し" } },
-            { condition: hasSleepingBag, advice: "【防寒・睡眠】停電時、暖房は使えません。寝袋等は低体温症から命を守る重要なアイテムです。", item: { name: "寝袋・シュラフ", query: "寝袋 シュラフ 防災" } },
-            { condition: hasLantern, advice: "【照明】ランタンがあれば空間全体が明るくなり、夜間の作業や食事が快適になります。懐中電灯との併用がおすすめです。", item: { name: "LEDランタン", query: "ledランタン 防災" } },
-            { condition: hasGasStove && hasGasCanisters, advice: "【食生活の質向上】温かい食事は体と心を温めます。カセットコンロとボンベはセットで備えましょう。", item: { name: "カセットコンロ・ボンベ", query: "カセットコンロ" } },
-            { condition: hasGarbageBags, advice: "【衛生管理】ゴミ袋は衛生管理だけでなく、防寒・防水など多様な使い方ができる万能品です。", item: { name: "大容量ゴミ袋", query: "ゴミ袋 45L 丈夫" } },
-            { condition: hasWaterTank, advice: "【水確保】給水車が来た際に、一度に多くの水を確保できるポリタンクは非常に重要です。", item: { name: "ポリタンク (給水用)", query: "水 タンク 10l" } },
-            { condition: hasFirstAid, advice: "【ケガ・病気】軽度のケガが命取りになることも。救急セットで基本的な応急処-置ができるようにしましょう。", item: { name: "救急セット", query: "救急セット 防災" } },
-            { condition: hasSoap, advice: "【感染症対策】石鹸やアルコール消毒液による手洗いを徹底し、病気を予防しましょう。", item: { name: "石鹸・アルコール消毒液", query: "アルコール消毒液" } },
-            { condition: hasPurifier, advice: "【水確保の多様化】携帯浄水器があれば、飲める水の選択肢が増え生存率が飛躍的に向上します。", item: {name: "携帯浄水器", query: "防災 携帯浄水器"} },
-            { condition: hasSolarCharger, advice: "【電力の自給】ソーラー充電器があれば、長期的な電力確保への道が開けます。", item: { name: "ソーラー充電器", query: "ソーラーパネル 充電器" } },
-            { condition: hasDeodorizingBags, advice: "【衛生環境の改善】簡易トイレのゴミや生ゴミの悪臭はストレスになります。防臭袋で衛生環境を保ちましょう。", item: { name: "防臭袋 (BOSなど)", query: "防臭袋 BOS" } },
-            { condition: hasSaranWrap, advice: "【万能アイテム】サランラップは食器を汚さず節水になる他、防寒や応急処置にも使える万能品です。", item: { name: "サランラップ", query: "サランラップ 30cm" } },
-            { condition: hasWhistle, advice: "【救助要請】瓦礫の下などに閉じ込められた際、ホイッスルは体力を消耗せず自分の居場所を知らせる最後の命綱になります。", item: {name: "ホイッスル 防災", query: "ホイッスル 防災"} },
-            { condition: hasGloves, advice: "【手の保護】片付けや作業時の手のケガを防ぐため、軍手や作業用手袋を用意しましょう。", item: { name: "作業用手袋", query: "防災 軍手" } },
-            { condition: hasVitamins, advice: "【健康維持】偏りがちな避難生活の栄養を補い、体調不良を防ぐためにビタミン剤も有効です。", item: { name: "ビタミン剤", query: "マルチビタミン サプリメント" } },
-            { condition: hasWetWipes, advice: "【衛生】断水時にお風呂の代わりになるウェットティッシュは、体を清潔に保ち気分をリフレッシュさせます。", item: { name: "からだふきシート", query: "からだふきシート 大判" } },
-            { condition: hasDisposableDishes, advice: "【節水】使い捨ての食器や割り箸は、洗い物を無くし貴重な水を節約するのに役立ちます。", item: { name: "使い捨て食器セット", query: "紙皿 割り箸 セット" } },
-            { condition: hasCash, advice: "【決済手段】停電に備え、電子マネーに頼らない現金（特に小銭）を用意しておきましょう。", item: null },
-            { condition: hasEntertainment, advice: "【心の健康】長期の避難生活では心の健康も重要。電気不要の娯楽品が役立ちます。", item: { name: "娯楽品 (本・ゲームなど)", query: "ボードゲーム" } }
+            { condition: survivalDays < 7, advice: "【最優先】水と食料が7日分に満たないようです。命に直結するため、何よりも先に備蓄しましょう。", item: { name: "備蓄水・食料 (7日分)", query: "防災 備蓄 食料 7日" } },
+            { condition: !hasHelmet, advice: "【安全確保】地震時の落下物から頭を守るヘルメットは、命を守る最重要アイテムの一つです。", item: { name: "防災ヘルメット", query: "防災 ヘルメット" } },
+            { condition: !hasPortableToilet, advice: "【衛生管理】災害時に最も深刻な問題の一つがトイレです。簡易トイレは衛生と尊厳を守る必需品です。", item: { name: "簡易トイレ", query: "防災 簡易トイレ" } },
+            { condition: !(hasPowerStation || hasBattery), advice: "【情報・電力】停電に備え、情報収集や連絡に必須のスマホを維持するため、ポータブル電源やモバイルバッテリーを準備しましょう。", item: { name: "ポータブル電源", query: "ポータブル電源 大容量" } },
+            { condition: !hasRadio, advice: "【情報収集】スマホが使えない状況も想定し、電池不要の手回し充電ラジオで広域の情報を確保しましょう。", item: { name: "防災ラジオ", query: "防災ラジオ 手回し" } },
+            { condition: !hasSleepingBag, advice: "【防寒・睡眠】停電時、暖房は使えません。寝袋等は低体温症から命を守る重要なアイテムです。", item: { name: "寝袋・シュラフ", query: "寝袋 シュラフ 防災" } },
+            { condition: !hasLantern, advice: "【照明】ランタンがあれば空間全体が明るくなり、夜間の作業や食事が快適になります。懐中電灯との併用がおすすめです。", item: { name: "LEDランタン", query: "ledランタン 防災" } },
+            { condition: !(hasGasStove && hasGasCanisters), advice: "【食生活の質向上】温かい食事は体と心を温めます。カセットコンロとボンベはセットで備えましょう。", item: { name: "カセットコンロ・ボンベ", query: "カセットコンロ" } },
+            { condition: !hasGarbageBags, advice: "【衛生管理】ゴミ袋は衛生管理だけでなく、防寒・防水など多様な使い方ができる万能品です。", item: { name: "大容量ゴミ袋", query: "ゴミ袋 45L 丈夫" } },
+            { condition: !hasWaterTank, advice: "【水確保】給水車が来た際に、一度に多くの水を確保できるポリタンクは非常に重要です。", item: { name: "ポリタンク (給水用)", query: "水 タンク 10l" } },
+            { condition: !hasFirstAid, advice: "【ケガ・病気】軽度のケガが命取りになることも。救急セットで基本的な応急処置ができるようにしましょう。", item: { name: "救急セット", query: "救急セット 防災" } },
+            { condition: !hasSoap, advice: "【感染症対策】石鹸やアルコール消毒液による手洗いを徹底し、病気を予防しましょう。", item: { name: "石鹸・アルコール消毒液", query: "アルコール消毒液" } },
+            { condition: !hasPurifier, advice: "【水確保の多様化】携帯浄水器があれば、飲める水の選択肢が増え生存率が飛躍的に向上します。", item: {name: "携帯浄水器", query: "防災 携帯浄水器"} },
+            { condition: !hasSolarCharger, advice: "【電力の自給】ソーラー充電器があれば、長期的な電力確保への道が開けます。", item: { name: "ソーラー充電器", query: "ソーラーパネル 充電器" } },
+            { condition: !hasDeodorizingBags, advice: "【衛生環境の改善】簡易トイレのゴミや生ゴミの悪臭はストレスになります。防臭袋で衛生環境を保ちましょう。", item: { name: "防臭袋 (BOSなど)", query: "防臭袋 BOS" } },
+            { condition: !hasSaranWrap, advice: "【万能アイテム】サランラップは食器を汚さず節水になる他、防寒や応急処置にも使える万能品です。", item: { name: "サランラップ", query: "サランラップ 30cm" } },
+            { condition: !hasWhistle, advice: "【救助要請】瓦礫の下などに閉じ込められた際、ホイッスルは体力を消耗せず自分の居場所を知らせる最後の命綱になります。", item: {name: "ホイッスル 防災", query: "ホイッスル 防災"} },
+            { condition: !hasGloves, advice: "【手の保護】片付けや作業時の手のケガを防ぐため、軍手や作業用手袋を用意しましょう。", item: { name: "作業用手袋", query: "防災 軍手" } },
+            { condition: !hasVitamins, advice: "【健康維持】偏りがちな避難生活の栄養を補い、体調不良を防ぐためにビタミン剤も有効です。", item: { name: "ビタミン剤", query: "マルチビタミン サプリメント" } },
+            { condition: !hasWetWipes, advice: "【衛生】断水時にお風呂の代わりになるウェットティッシュは、体を清潔に保ち気分をリフレッシュさせます。", item: { name: "からだふきシート", query: "からだふきシート 大判" } },
+            { condition: !hasDisposableDishes, advice: "【節水】使い捨ての食器や割り箸は、洗い物を無くし貴重な水を節約するのに役立ちます。", item: { name: "使い捨て食器セット", query: "紙皿 割り箸 セット" } },
+            { condition: !hasCash, advice: "【決済手段】停電に備え、電子マネーに頼らない現金（特に小銭）を用意しておきましょう。", item: null },
+            { condition: !hasEntertainment, advice: "【心の健康】長期の避難生活では心の健康も重要。電気不要の娯楽品が役立ちます。", item: { name: "娯楽品 (本・ゲームなど)", query: "ボードゲーム" } }
         ];
 
         allItems.forEach(s => {
-            if (!s.condition) {
+            if (s.condition) {
                 addSuggestion(s.advice, s.item);
             }
         });
