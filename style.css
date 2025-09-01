@@ -5,9 +5,9 @@ body {
     color: #e0e0e0;
     line-height: 1.7;
     margin: 0;
-    padding: 15px; /* スマホ用に左右の余白を少し減らす */
+    padding: 15px;
     background-image: 
-        url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMzMzMzMzMiIGZpbGwtb3BhY2l0eT0iMC4yIj48cGF0aCBkPSJNMjAgMTAuOTk5Mjg0NWEzLjAwMSAzLjAwMSAwIDAgMSA2IDBWMjBIMTBhMTAuMDAxIDEwLjAwMSAwIDAgMCAxMC05LjAwMDcxNTMzWiIvPjxwYXRoIGQyMCIxMC45OTkyODQ1YTMuMDAxIDMuMDAxIDAgMCAxNiAwVjIwSDEwYTEwLjAwMSAxMC4wMDEgMCAwIDAxMC05LjAwMDcxNTMzWiIvPjxwYXRoIGQ9Ik0wIDEwLjAwMDcxNTMzYTMuMDAxIDMuMDAxIDAgMCAxNiAwVjIwSDBhMTAuMDAxIDEwLjAwMSAwIDAgMTAtOS4wMDA3MTUzM1oiLz48L2c+PC9nPjwvc3ZnPg=='),
+        url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMzMzMzMzMiIGZpbGwtb3BhY2l0eT0iMC4yIj48cGF0aCBkPSJNMjAgMTAuOTk5Mjg0NWEzLjAwMSAzLjAwMSAwIDAgMSA2IDBWMjBIMTAaMTAuMDAxIDEwLjAwMSAwIDAgMCAxMC05LjAwMDcxNTMzWiIvPjxwYXRoIGQyMCIxMC45OTkyODQ1YTMuMDAxIDMuMDAxIDAgMCAxNiAwVjIwSDEwYTEwLjAwMSAxMC4wMDEgMCAwIDAxMC05LjAwMDcxNTMzWiIvPjxwYXRoIGQ9Ik0wIDEwLjAwMDcxNTMzYTMuMDAxIDMuMDAxIDAgMCAxNiAwVjIwSDBhMTAuMDAxIDEwLjAwMSAwIDAgMTAtOS4wMDA3MTUzM1oiLz48L2c+PC9nPjwvc3ZnPg=='),
         linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
         url('https://www.transparenttextures.com/patterns/lined-paper.png');
     background-blend-mode: multiply;
@@ -16,26 +16,31 @@ body {
     max-width: 750px;
     margin: 0 auto;
     background-color: #2a2a2a;
-    padding: 1.5em; /* スマホ用に少し余白を調整 */
+    padding: 1.5em;
     border-radius: 4px;
     box-shadow: 
         0 0 15px rgba(0, 255, 0, 0.4),
         0 0 30px rgba(93, 58, 155, 0.3) inset;
     border: 1px solid #3d3d3d;
 }
-h1, h2, h3 {
+
+/* ロゴ */
+.logo-container {
+    text-align: center;
+    border-bottom: 2px solid #3d3d3d;
+    padding-bottom: 15px;
+    margin-bottom: 1.2em;
+}
+.logo-container img {
+    max-width: 350px;
+    height: auto;
+}
+
+h2, h3 {
     color: #00ff00;
     text-shadow: 0 0 5px rgba(0, 255, 0, 0.6);
     font-family: 'M PLUS 1 Code', monospace;
     text-transform: uppercase;
-}
-h1 { 
-    font-size: 2.2em; 
-    text-align: center;
-    border-bottom: 2px solid #3d3d3d;
-    padding-bottom: 10px;
-    margin-top: 0;
-    margin-bottom: 1.2em;
 }
 h2 { 
     font-size: 1.6em; 
@@ -99,7 +104,7 @@ input[type="checkbox"] {
     accent-color: #5d3a9b;
 }
 
-/* === ▼ モバイルファーストなフォームデザイン ▼ === */
+/* モバイルファーストなフォームデザイン */
 .form-section {
     margin: 1.5em 0.5em;
 }
@@ -110,10 +115,13 @@ input[type="checkbox"] {
     display: block;
 }
 
-/* 人数入力 */
+/* 人数・ペット入力 */
 .person-counter {
     display: flex;
     gap: 1em;
+}
+.pet-counter {
+    margin-top: 1em;
 }
 .person-input-group {
     flex: 1;
@@ -176,11 +184,41 @@ input[type="checkbox"] {
 .radio-option label {
     margin-bottom: 0;
 }
-/* === ▲ モバイルファーストなフォームデザイン ▲ === */
 
+/* アコーディオンUIのスタイル */
 .item-group {
-    margin-bottom: 1.2em;
-    padding: 0 0.5em;
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid #3d3d3d;
+    padding: 0.5em 0;
+}
+.item-group:last-child {
+    border-bottom: none;
+}
+.item-group summary {
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.2s;
+}
+.item-group summary:hover {
+    background-color: #3a3a3a;
+}
+.item-group summary h3 {
+    display: inline-block;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+.item-group summary::-webkit-details-marker {
+    display: none;
+}
+.item-group summary::marker {
+    display: none;
+}
+.item-group summary {
+    list-style: none;
+}
+.details-content {
+    padding: 1em 0.5em 0.5em 0.5em;
 }
 
 button {
@@ -214,12 +252,49 @@ button:hover {
     border: 1px solid #555;
     box-shadow: 0 0 10px rgba(0, 255, 0, 0.3) inset;
 }
+
+/* 前回比較エリアのスタイル */
+#comparison-area {
+    background-color: #2a2a2a;
+    border: 1px dashed #5d3a9b;
+    border-radius: 2px;
+    padding: 1em;
+    margin-bottom: 2em;
+    text-align: center;
+}
+#comparison-area h3 {
+    border: none;
+    padding: 0;
+    margin: 0 0 0.5em 0;
+    color: #e0e0e0;
+}
+#comparison-area p {
+    margin: 0;
+    color: #ccc;
+}
+#comparison-area .up { color: #00ff00; }
+#comparison-area .down { color: #ff4d4d; }
+
 .result-title {
     text-align: center;
     font-size: 1.2em;
     color: #bbb;
     font-style: italic;
 }
+
+/* 称号画像 */
+#bousai-title-image-container {
+    text-align: center;
+    margin: 1.5em 0 1em 0;
+}
+#bousai-title-image {
+    max-width: 80%;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 0 15px rgba(138, 99, 210, 0.8);
+    border: 1px solid #5d3a9b;
+}
+
 #bousai-title {
     text-align: center;
     font-size: 2.2em;
@@ -355,10 +430,12 @@ button:hover {
     background-color: #2a2a2a;
     border: 1px dashed #777;
     border-radius: 2px;
-    text-align: center;
     color: #888;
-    font-style: italic;
 }
+.ad-item:not(:last-child) {
+    margin-bottom: 1.5em;
+}
+
 .disclaimer {
     text-align: center;
     font-size: 0.85em;
@@ -368,4 +445,60 @@ button:hover {
     padding-top: 1.5em;
     border-top: 1px dashed #555;
     font-style: italic;
+}
+
+/* ローディング画面のスタイル */
+#loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.loading-box {
+    background-color: #2a2a2a;
+    padding: 2em;
+    border-radius: 4px;
+    border: 1px solid #5d3a9b;
+    text-align: center;
+    max-width: 90%;
+    width: 500px;
+}
+
+.loading-box h2 {
+    color: #00ff00;
+    margin-top: 0;
+}
+.loading-box p {
+    color: #ccc;
+    font-size: 0.9em;
+}
+
+#modal-ad-space {
+    margin-top: 1.5em;
+    padding: 1em;
+    background-color: #1a1a1a;
+    border: 1px dashed #555;
+    border-radius: 2px;
+}
+
+.spinner {
+    margin: 0 auto 1.5em auto;
+    width: 50px;
+    height: 50px;
+    border: 5px solid #444;
+    border-top: 5px solid #00ff00;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

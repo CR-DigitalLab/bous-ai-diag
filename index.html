@@ -9,17 +9,18 @@
 </head>
 <body>
     <div class="container">
-        <h1>Bous-AI</h1>
+        <div class="logo-container">
+            <img src="bousai_logo.jpg" alt="Bous-AI ロゴ">
+        </div>
         <p class="description">
-            もしもの時、あなたの備えは万全ですか？<br>
-            外部からの供給が途絶えた場合、自宅の備蓄だけでどれだけ快適に生活できるか、ゲーム感覚で診断してみましょう！
+            外部供給が遮断された世界で、何日間「快適」に生きられるかをシミュレートします。
         </p>
         <div id="input-form">
             <fieldset>
                 <legend>STEP 1: あなたについて教えてください</legend>
-                
+
                 <div class="form-section">
-                    <label class="section-label">生活する人数</label>
+                    <label class="section-label">生活する人数とペット</label>
                     <div class="person-counter">
                         <div class="person-input-group">
                             <label for="adults">大人</label>
@@ -33,6 +34,22 @@
                             <div class="input-wrapper">
                                 <input type="number" id="children" value="0" min="0">
                                 <span>人</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="person-counter pet-counter">
+                        <div class="person-input-group">
+                            <label for="dogs">犬</label>
+                            <div class="input-wrapper">
+                                <input type="number" id="dogs" value="0" min="0">
+                                <span>匹</span>
+                            </div>
+                        </div>
+                        <div class="person-input-group">
+                            <label for="cats">猫</label>
+                            <div class="input-wrapper">
+                                <input type="number" id="cats" value="0" min="0">
+                                <span>匹</span>
                             </div>
                         </div>
                     </div>
@@ -55,49 +72,64 @@
             </fieldset>
             <fieldset>
                 <legend>STEP 2: あなたの備えを教えてください</legend>
-                <div class="item-group">
-                    <h3>💧 食料・水</h3>
-                    <label>飲料水: <input type="number" id="water" value="0" min="0"> L</label>
-                    <label>食料 (1人1日3食換算): <input type="number" id="food" value="0" min="0"> 食分</label>
-                    <label><input type="checkbox" id="purifier"> 🏞️ 携帯浄水器・浄水タブレット</label>
-                </div>
-                <div class="item-group">
-                    <h3>🧼 衛生</h3>
-                    <label>トイレットペーパー: <input type="number" id="toilet-paper" value="0" min="0"> ロール</label>
-                    <label><input type="checkbox" id="portable-toilet"> 🚽 簡易・携帯トイレ</label>
-                    <label><input type="checkbox" id="wet-wipes"> 拭き取りシート (体・顔)</label>
-                    <label><input type="checkbox" id="toothbrush"> 🪥 歯磨きシート・口腔ケア用品</label>
-                    <label><input type="checkbox" id="soap"> 🧴 石鹸・アルコール消毒液</label>
-                    <label><input type="checkbox" id="dry-shampoo"> 💧 ドライシャンプー</label>
-                    <label><input type="checkbox" id="mask"> 😷 マスク</label>
-                </div>
-                <div class="item-group">
-                    <h3>🔦 電力・照明・情報</h3>
-                    <label><input type="checkbox" id="battery"> 🔋 モバイルバッテリー (10000mAh以上)</label>
-                    <label><input type="checkbox" id="flashlight"> 🔦 懐中電灯・ヘッドライト</label>
-                    <label><input type="checkbox" id="dry-cell"> 🔋 乾電池 (懐中電灯用など)</label>
-                    <label><input type="checkbox" id="radio"> 📻 手回し充電ラジオなど</label>
-                </div>
-                <div class="item-group">
-                    <h3>⛑️ 快適・安全</h3>
-                    <label><input type="checkbox" id="gas-stove"> 🔥 カセットコンロ・ボンベ</label>
-                    <label><input type="checkbox" id="first-aid"> 🩹 救急セット (絆創膏・消毒液など)</label>
-                    <label><input type="checkbox" id="gloves"> 🧤 軍手・作業用手袋</label>
-                    <label><input type="checkbox" id="sleeping-bag"> 😴 寝袋・毛布・アルミシート</label>
-                    <label><input type="checkbox" id="medicine"> 💊 常備薬</label>
-                    <label><input type="checkbox" id="saran-wrap"> ✨ サランラップ・アルミホイル</label>
-                    <label><input type="checkbox" id="gum-tape"> 🩹 テープ類 (ガムテ・養生テープ)</label>
-                    <label><input type="checkbox" id="cash"> 💵 現金 (小銭多め)</label>
-                    <label><input type="checkbox" id="ear-plugs"> 🎧 アイマスク・耳栓</label>
-                    <label><input type="checkbox" id="entertainment"> 🃏 娯楽品 (本・トランプなど)</label>
-                </div>
+                <details class="item-group" open>
+                    <summary><h3>💧 食料・水</h3></summary>
+                    <div class="details-content">
+                        <label>飲料水: <input type="number" id="water" value="0" min="0"> L</label>
+                        <label>食料 (1人1日3食換算): <input type="number" id="food" value="0" min="0"> 食分</label>
+                        <label><input type="checkbox" id="purifier"> 🏞️ 携帯浄水器・浄水タブレット</label>
+                    </div>
+                </details>
+                <details class="item-group">
+                    <summary><h3>🧼 衛生</h3></summary>
+                    <div class="details-content">
+                        <label>トイレットペーパー: <input type="number" id="toilet-paper" value="0" min="0"> ロール</label>
+                        <label><input type="checkbox" id="portable-toilet"> 🚽 簡易・携帯トイレ</label>
+                        <label><input type="checkbox" id="wet-wipes"> 拭き取りシート (体・顔)</label>
+                        <label><input type="checkbox" id="toothbrush"> 🪥 歯磨きシート・口腔ケア用品</label>
+                        <label><input type="checkbox" id="soap"> 🧴 石鹸・アルコール消毒液</label>
+                        <label><input type="checkbox" id="dry-shampoo"> 💧 ドライシャンプー</label>
+                        <label><input type="checkbox" id="mask"> 😷 マスク</label>
+                    </div>
+                </details>
+                <details class="item-group">
+                    <summary><h3>🔦 電力・照明・情報</h3></summary>
+                    <div class="details-content">
+                        <label><input type="checkbox" id="battery"> 🔋 モバイルバッテリー (10000mAh以上)</label>
+                        <label><input type="checkbox" id="flashlight"> 🔦 懐中電灯・ヘッドライト</label>
+                        <label><input type="checkbox" id="dry-cell"> 🔋 乾電池 (懐中電灯用など)</label>
+                        <label><input type="checkbox" id="radio"> 📻 手回し充電ラジオなど</label>
+                    </div>
+                </details>
+                <details class="item-group">
+                    <summary><h3>⛑️ 快適・安全</h3></summary>
+                    <div class="details-content">
+                        <label><input type="checkbox" id="gas-stove"> 🔥 カセットコンロ・ボンベ</label>
+                        <label><input type="checkbox" id="first-aid"> 🩹 救急セット (絆創膏・消毒液など)</label>
+                        <label><input type="checkbox" id="gloves"> 🧤 軍手・作業用手袋</label>
+                        <label><input type="checkbox" id="sleeping-bag"> 😴 寝袋・毛布・アルミシート</label>
+                        <label><input type="checkbox" id="medicine"> 💊 常備薬</label>
+                        <label><input type="checkbox" id="saran-wrap"> ✨ サランラップ・アルミホイル</label>
+                        <label><input type="checkbox" id="gum-tape"> 🩹 テープ類 (ガムテ・養生テープ)</label>
+                        <label><input type="checkbox" id="cash"> 💵 現金 (小銭多め)</label>
+                        <label><input type="checkbox" id="ear-plugs"> 🎧 アイマスク・耳栓</label>
+                        <label><input type="checkbox" id="entertainment"> 🃏 娯楽品 (本・トランプなど)</label>
+                    </div>
+                </details>
             </fieldset>
             <button onclick="diagnose()">診断する</button>
         </div>
 
         <div id="result-area" style="display:none;">
             <h2>診断結果</h2>
+            <div id="comparison-area" style="display:none;">
+                <h3>前回との比較</h3>
+                <p id="comparison-text"></p>
+            </div>
             <p class="result-title">あなたの防災タイプは...</p>
+            <div id="bousai-title-image-container">
+                <img id="bousai-title-image" src="" alt="防災タイプイメージ" style="display:none;">
+            </div>
             <h3 id="bousai-title"></h3>
             <p class="result-days">生存可能日数は... <strong id="survival-days">0</strong> 日です！</p>
             <div class="chart-container">
@@ -117,13 +149,72 @@
 
             <h3>💡 おすすめ防災グッズ</h3>
             <div id="ad-space">
-                <p style="color: #888;">（ここにAmazonの広告が表示されます）</p>
+                <div class="ad-item">
+                    <script type="text/javascript">
+                    (function(b,c,f,g,a,d,e){b.MoshimoAffiliateObject=a;
+                    b[a]=b[a]||function(){arguments.currentScript=c.currentScript
+                    ||c.scripts[c.scripts.length-2];(b[a].q=b[a].q||[]).push(arguments)};
+                    c.getElementById(a)||(d=c.createElement(f),d.src=g,
+                    d.id=a,e=c.getElementsByTagName("body")[0],e.appendChild(d))})
+                    (window,document,"script","//dn.msmstatic.com/site/cardlink/bundle.js?20220329","msmaflink");
+                    msmaflink({"n":"携帯用浄水器 浄水器 携帯浄水器　携帯型浄水器 濾過器 災害グッズ 防災 サバイバル アウトドア 避難バッグ ボーイスカウト AQUA MOUTAIN","b":"","t":"","d":"https:\/\/thumbnail.image.rakuten.co.jp","c_p":"\/@0_mall\/norah78\/cabinet\/1\/07341656","p":["\/1.jpg","\/2.jpg","\/imgrc0090424007.jpg"],"u":{"u":"https:\/\/item.rakuten.co.jp\/norah78\/10000016\/","t":"rakuten","r_v":""},"v":"2.1","b_l":[{"id":1,"u_tx":"楽天市場で見る","u_bc":"#f76956","u_url":"https:\/\/item.rakuten.co.jp\/norah78\/10000016\/","a_id":5153851,"p_id":54,"pl_id":27059,"pc_id":54,"s_n":"rakuten","u_so":1}],"eid":"uvNi8","s":"xs"});
+                    </script>
+                    <div id="msmaflink-uvNi8">リンク</div>
+                    </div>
+                <div class="ad-item">
+                    <script type="text/javascript">
+                    (function(b,c,f,g,a,d,e){b.MoshimoAffiliateObject=a;
+                    b[a]=b[a]||function(){arguments.currentScript=c.currentScript
+                    ||c.scripts[c.scripts.length-2];(b[a].q=b[a].q||[]).push(arguments)};
+                    c.getElementById(a)||(d=c.createElement(f),d.src=g,
+                    d.id=a,e=c.getElementsByTagName("body")[0],e.appendChild(d))})
+                    (window,document,"script","//dn.msmstatic.com/site/cardlink/bundle.js?20220329","msmaflink");
+                    msmaflink({"n":"【防災グッズ大賞受賞】 スツーレ® Step 簡易トイレ 折りたたみ ポータブルトイレ 携帯トイレ 防災トイレ 災害用 非常用 防災グッズ 耐荷重150kg 排便袋\u0026凝固剤つき","b":"","t":"","d":"https:\/\/thumbnail.image.rakuten.co.jp","c_p":"\/@0_mall\/dajie\/cabinet\/10613006","p":["\/imgrc0096946195.jpg","\/imgrc0099529780.jpg","\/02.jpg"],"u":{"u":"https:\/\/item.rakuten.co.jp\/dajie\/stoole_step\/","t":"rakuten","r_v":""},"v":"2.1","b_l":[{"id":1,"u_tx":"楽天市場で見る","u_bc":"#f76956","u_url":"https:\/\/item.rakuten.co.jp\/dajie\/stoole_step\/","a_id":5153851,"p_id":54,"pl_id":27059,"pc_id":54,"s_n":"rakuten","u_so":1}],"eid":"iSYvw","s":"xs"});
+                    </script>
+                    <div id="msmaflink-iSYvw">リンク</div>
+                    </div>
+                <div class="ad-item">
+                    <script type="text/javascript">
+                    (function(b,c,f,g,a,d,e){b.MoshimoAffiliateObject=a;
+                    b[a]=b[a]||function(){arguments.currentScript=c.currentScript
+                    ||c.scripts[c.scripts.length-2];(b[a].q=b[a].q||[]).push(arguments)};
+                    c.getElementById(a)||(d=c.createElement(f),d.src=g,
+                    d.id=a,e=c.getElementsByTagName("body")[0],e.appendChild(d))})
+                    (window,document,"script","//dn.msmstatic.com/site/cardlink/bundle.js?20220329","msmaflink");
+                    msmaflink({"n":"【ふるさと納税】 【保存水 10年】 災害時に備えちょきよぉ〜セット 500ml×24本 500ml×48本 マリンゴールド10years ミネラルウォーター ペットボトル 10年保存水 長期保存水 備蓄水 備蓄用 非常災害備蓄用 地震 災害用 避難用品 防災グッズ おすすめ 防災セット 5年","b":"","t":"","d":"https:\/\/thumbnail.image.rakuten.co.jp","c_p":"\/@0_mall\/f392022-muroto\/cabinet\/04865216\/05860602\/10698013","p":["\/imgrc0128851192.jpg","\/mg10_500ml_02.jpg","\/mg10_500ml_03.jpg"],"u":{"u":"https:\/\/item.rakuten.co.jp\/f392022-muroto\/10001212\/","t":"rakuten","r_v":""},"v":"2.1","b_l":[{"id":1,"u_tx":"楽天市場で見る","u_bc":"#f76956","u_url":"https:\/\/item.rakuten.co.jp\/f392022-muroto\/10001212\/","a_id":5153851,"p_id":54,"pl_id":27059,"pc_id":54,"s_n":"rakuten","u_so":1}],"eid":"9HgkP","s":"xs"});
+                    </script>
+                    <div id="msmaflink-9HgkP">リンク</div>
+                    </div>
             </div>
             <a id="tweet-button" href="#" target="_blank" rel="noopener noreferrer">結果をシェアする</a>
         </div>
     </div>
+
+    <div id="loading-overlay">
+        <div class="loading-box">
+            <div class="spinner"></div>
+            <h2>解析中...</h2>
+            <p>あなたに最適な防災プランを生成しています</p>
+            <div id="modal-ad-space">
+                <div class="ad-item">
+                    <script type="text/javascript">
+                    (function(b,c,f,g,a,d,e){b.MoshimoAffiliateObject=a;
+                    b[a]=b[a]||function(){arguments.currentScript=c.currentScript
+                    ||c.scripts[c.scripts.length-2];(b[a].q=b[a].q||[]).push(arguments)};
+                    c.getElementById(a)||(d=c.createElement(f),d.src=g,
+                    d.id=a,e=c.getElementsByTagName("body")[0],e.appendChild(d))})
+                    (window,document,"script","//dn.msmstatic.com/site/cardlink/bundle.js?20220329","msmaflink");
+                    msmaflink({"n":"YAMAZEN 山善 防災バッグ30 YBG-30R","b":"","t":"","d":"https:\/\/thumbnail.image.rakuten.co.jp","c_p":"\/@0_mall\/superdeal\/cabinet\/09061004\/10528769\/11290027","p":["\/4983771855597_1.jpg","\/4983771855597_2.jpg","\/4983771855597_3.jpg"],"u":{"u":"https:\/\/item.rakuten.co.jp\/superdeal\/14351yamazenybg30r2410\/","t":"rakuten","r_v":""},"v":"2.1","b_l":[{"id":1,"u_tx":"楽天市場で見る","u_bc":"#f76956","u_url":"https:\/\/item.rakuten.co.jp\/superdeal\/14351yamazenybg30r2410\/","a_id":5153851,"p_id":54,"pl_id":27059,"pc_id":54,"s_n":"rakuten","u_so":1}],"eid":"aAhmb","s":"xs"});
+                    </script>
+                    <div id="msmaflink-aAhmb">リンク</div>
+                    </div>
+            </div>
+        </div>
+    </div>
+
     <footer class="disclaimer">
         <p>※本診断は防災意識向上のための目安です。診断結果の正確性を保証するものではなく、いかなる損害についても一切の責任を負いません。</p>
+        <p>この診断システムの維持・開発は、アフィリエイト収益によって支えられています。サイト内に表示される商品リンクにはプロモーションが含まれます。</p>
     </footer>
     <script src="script.js"></script>
 </body>
