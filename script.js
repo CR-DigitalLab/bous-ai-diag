@@ -237,7 +237,7 @@ function diagnose() {
         const chartScores = [ { name: '食料・水', score: foodWaterScore }, { name: '衛生', score: hygieneScore }, { name: '電力', score: powerScore }, { name: '情報', score: infoScore }, { name: '快適・安全', score: comfortScore } ];
         const ctx = document.getElementById('radar-chart').getContext('2d');
         if (myRadarChart) myRadarChart.destroy();
-        myRadarChart = new Chart(ctx, { type: 'radar', data: { labels: chartScores.map(s => s.name), datasets: [{ label: '防災スコア', data: chartScores.map(s => s.score), backgroundColor: 'rgba(0, 255, 0, 0.3)', borderColor: '#00ff00', pointBackgroundColor: '#00ff00', pointBorderColor: '#1a1a1a', pointHoverBackgroundColor: '#fff', pointHoverBorderColor: '#00ff00' }] }, options: { scales: { r: { angleLines: { color: '#666' }, grid: { color: '#666' }, pointLabels: { font: { size: 13 }, color: '#e0e0e0' }, ticks: { color: '#e0e0e0', backdropColor: 'rgba(42, 42, 42, 0.8)' }, suggestedMin: 0, suggestedMax: 100 } }, plugins: { legend: { display: false } } } });
+        myRadarChart = new Chart(ctx, { type: 'radar', data: { labels: chartScores.map(s => s.name), datasets: [{ label: '防災スコア', data: chartScores.map(s => s.score), backgroundColor: 'rgba(0, 255, 0, 0.3)', borderColor: '#00ff00', pointBackgroundColor: '#00ff00', pointBorderColor: '#1a1a1a', pointHoverBackgroundColor: '#fff', pointHoverBorderColor: '#00ff00' }] }, options: { scales: { r: { angleLines: { color: '#666' }, grid: { color: '#666' }, pointLabels: { font: { size: 14 }, color: '#e0e0e0' }, ticks: { color: '#e0e0e0', backdropColor: 'rgba(42, 42, 42, 0.8)' }, suggestedMin: 0, suggestedMax: 100 } }, plugins: { legend: { display: false } } } });
 
         // --- 8. SNS共有ボタンの更新 ---
         const tweetText = `私の防災診断結果\n【${title}】生存可能日数: ${survivalDays}日\n\n戦闘力\n食料・水: レベル${Math.round(foodWaterScore)}\n衛生: レベル${Math.round(hygieneScore)}\n電力: レベル${Math.round(powerScore)}\n情報: レベル${Math.round(infoScore)}\n快適・安全: レベル${Math.round(comfortScore)}\n\n#BousAI #ひきこもり防災診断`;
@@ -255,11 +255,3 @@ function diagnose() {
 
     }, 4000); 
 }
-
-// HTMLの読み込み完了後にボタンのクリックイベントを設定
-document.addEventListener('DOMContentLoaded', function() {
-    const diagnoseButton = document.getElementById('diagnose-button');
-    if (diagnoseButton) {
-        diagnoseButton.addEventListener('click', diagnose);
-    }
-});

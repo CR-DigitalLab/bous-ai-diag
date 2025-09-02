@@ -311,11 +311,10 @@ button:hover {
     font-family: 'M PLUS 1 Code', monospace;
 }
 .chart-container {
-    /* 左右のネガティブマージンで親要素のpaddingを相殺し、幅を広げます */
-    margin: 2.5em -1em; 
-    background-color: rgba(26, 26, 26, 0.7);
-    /* 全体のpaddingを均等にします */
-    padding: 1.5em; 
+    margin: 2.5em 0;
+    background-color: rgba(26, 26, 26, 0.7); /* 少し透明度を持たせる */
+    padding: 1.5em 1em;
+    /* 枠線をなくし角を丸く */
     border: none;
     border-radius: 12px;
     box-shadow: 0 0 8px rgba(0, 255, 0, 0.2);
