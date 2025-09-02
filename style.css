@@ -16,23 +16,25 @@ body {
     max-width: 750px;
     margin: 0 auto;
     background-color: #2a2a2a;
-    padding: 1.5em;
-    border-radius: 4px;
-    box-shadow: 
-        0 0 15px rgba(0, 255, 0, 0.4),
-        0 0 30px rgba(93, 58, 155, 0.3) inset;
-    border: 1px solid #3d3d3d;
+    /* スマホでの左右の余白を少し調整 */
+    padding: 1.5em 1em; 
+    /* 角を大きく丸くする */
+    border-radius: 16px; 
+    /* 影を調整して立体感を出す */
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5); 
+    /* 枠線を削除 */
+    border: none;
 }
 
 /* ロゴ */
 .logo-container {
     text-align: center;
-    border-bottom: 2px solid #3d3d3d;
+    border-bottom: 1px solid #3d3d3d;
     padding-bottom: 15px;
-    margin-bottom: 1.2em;
+    margin-bottom: 1.5em;
 }
 .logo-container img {
-    max-width: 350px;
+    max-width: 300px;
     height: auto;
 }
 
@@ -58,22 +60,24 @@ h3 {
 }
 p.description {
     text-align: center;
-    background-color: #3a3a3a;
+    background-color: #333;
     padding: 1.2em;
-    border-radius: 2px;
-    border: 1px solid #555;
+    /* 角を丸くする */
+    border-radius: 12px; 
+    /* 枠線を削除 */
+    border: none;
     font-style: italic;
     color: #ccc;
-    margin-bottom: 2em;
+    margin: 0 0.5em 2.5em;
 }
 
 /* フォーム関連 */
 fieldset {
-    border: 1px solid #555;
-    border-radius: 2px;
-    margin-bottom: 1.8em;
-    padding: 1em;
-    background-color: #2f2f2f;
+    /* 枠線をなくし、余白で区切る */
+    border: none;
+    margin-bottom: 2em;
+    padding: 0;
+    background-color: transparent;
 }
 legend {
     font-weight: bold;
@@ -81,7 +85,9 @@ legend {
     padding: 0.2em 0.8em;
     font-size: 1.1em;
     background-color: #2a2a2a;
-    border: 1px solid #00ff00;
+    /* 枠線を柔らかい印象に */
+    border: 1px solid #5d3a9b;
+    border-radius: 8px;
     text-shadow: 0 0 3px rgba(0, 255, 0, 0.6);
 }
 label {
@@ -91,9 +97,10 @@ label {
 }
 input[type="number"] {
     width: 60px;
-    padding: 6px;
+    padding: 8px; /* 少し余白を増やす */
     border: 1px solid #555;
-    border-radius: 2px;
+    /* 角を丸くする */
+    border-radius: 8px; 
     margin: 0 5px;
     background-color: #3a3a3a;
     color: #00ff00;
@@ -123,9 +130,11 @@ input[type="checkbox"] {
 .person-input-group {
     flex: 1;
     background-color: #3a3a3a;
-    padding: 0.5em 1em;
-    border-radius: 4px;
-    border: 1px solid #555;
+    padding: 0.8em 1em; /* 内側の余白を調整 */
+    /* 角を丸くする */
+    border-radius: 12px; 
+    /* 枠線を削除 */
+    border: none; 
 }
 .person-input-group label {
     display: block;
@@ -171,6 +180,8 @@ input[type="checkbox"] {
     cursor: pointer;
     outline: none;
     transition: background-color 0.2s;
+    padding: 0.5em;
+    border-radius: 8px;
 }
 .item-group summary:hover {
     background-color: #3a3a3a;
@@ -191,7 +202,7 @@ input[type="checkbox"] {
     list-style: none;
 }
 .details-content {
-    padding: 1em 0.5em 0.5em 0.5em;
+    padding: 1em 0.5em 0.5em 1em;
 }
 
 button {
@@ -203,7 +214,8 @@ button {
     color: #e0e0e0;
     background-color: #5d3a9b;
     border: none;
-    border-radius: 2px;
+    /* ボタンを角丸（ピル型）にして親しみやすく */
+    border-radius: 50px; 
     cursor: pointer;
     transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
     text-transform: uppercase;
@@ -219,19 +231,21 @@ button:hover {
 /* 結果表示エリア */
 #result-area {
     margin-top: 2.5em;
-    padding: 1.5em;
-    background-color: #2f2f2f;
-    border-radius: 4px;
-    border: 1px solid #555;
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3) inset;
+    padding: 1.5em 1em;
+    background-color: #333; /* 背景色を少し変えて区別 */
+    /* 角を丸くする */
+    border-radius: 16px; 
+    /* 枠線を削除 */
+    border: none; 
+    box-shadow: none; /* 内側の影を削除 */
 }
 
 /* 前回比較エリアのスタイル */
 #comparison-area {
     background-color: #2a2a2a;
-    border: 1px dashed #5d3a9b;
-    border-radius: 2px;
-    padding: 1em;
+    border: 1px solid #5d3a9b;
+    border-radius: 12px;
+    padding: 1.2em;
     margin-bottom: 2em;
     text-align: center;
 }
@@ -263,7 +277,7 @@ button:hover {
 #bousai-title-image {
     max-width: 80%;
     height: auto;
-    border-radius: 4px;
+    border-radius: 12px; /* 画像の角も丸くする */
     box-shadow: 0 0 15px rgba(138, 99, 210, 0.8);
     border: 1px solid #5d3a9b;
 }
@@ -275,7 +289,8 @@ button:hover {
     margin: 0.8em 0;
     padding: 0.7em;
     background-color: #1a1a1a;
-    border-radius: 2px;
+    /* 角を丸くする */
+    border-radius: 12px; 
     border: 1px solid #5d3a9b;
     text-shadow: 0 0 8px rgba(138, 99, 210, 0.8);
     animation: slow-glow 3s infinite alternate;
@@ -296,10 +311,13 @@ button:hover {
     font-family: 'M PLUS 1 Code', monospace;
 }
 .chart-container {
-    margin: 2.5em 0;
-    background-color: #1a1a1a;
-    padding: 1em;
-    border: 1px dashed #555;
+    /* 左右のネガティブマージンで親要素のpaddingを相殺し、幅を広げます */
+    margin: 2.5em -1em; 
+    background-color: rgba(26, 26, 26, 0.7);
+    /* 全体のpaddingを均等にします */
+    padding: 1.5em; 
+    border: none;
+    border-radius: 12px;
     box-shadow: 0 0 8px rgba(0, 255, 0, 0.2);
 }
 #shopping-list {
@@ -309,16 +327,12 @@ button:hover {
 }
 #shopping-list li {
     margin-bottom: 0.8em;
-    padding-left: 2em;
-    position: relative;
+    padding: 0.8em;
+    background-color: #2a2a2a;
+    border-radius: 8px;
     color: #ccc;
 }
-#shopping-list li::before {
-    content: '⚙️ ';
-    position: absolute;
-    left: 0;
-    color: #00ff00;
-}
+
 #shopping-list a {
     text-decoration: none;
     color: #00ff00;
@@ -341,26 +355,27 @@ button:hover {
 /* アドバイスリストのスタイル */
 .advice-list {
     list-style: none;
-    padding: 1.5em;
+    padding: 0;
     margin: 1.5em 0;
-    background-color: #3a3a3a;
-    border-radius: 2px;
-    border: 1px dashed #777;
-    box-shadow: 0 0 8px rgba(93, 58, 155, 0.3);
+    background-color: transparent;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
 }
 .advice-list li {
     margin-bottom: 1em;
     line-height: 1.6;
-    padding-left: 2em;
+    padding: 1em;
     position: relative;
     color: #e0e0e0;
+    background-color: #3a3a3a;
+    border-radius: 8px;
+    border-left: 3px solid #00ff00;
 }
 .advice-list li::before {
-    content: '👁️ ';
-    position: absolute;
-    left: 0;
-    color: #00ff00;
+    content: ''; /* アイコンは削除し、左のボーダーで表現 */
 }
+
 
 /* 背景情報セクション */
 .background-info {
@@ -368,7 +383,7 @@ button:hover {
     padding: 1.5em;
     background-color: #2f2f2f;
     border-left: 5px solid #5d3a9b;
-    border-radius: 2px;
+    border-radius: 8px; /* 角を丸く */
     box-shadow: 0 0 10px rgba(93, 58, 155, 0.4);
 }
 .background-info h3 {
@@ -393,7 +408,8 @@ button:hover {
     color: #1a1a1a;
     text-decoration: none;
     font-weight: bold;
-    border-radius: 2px;
+    /* ボタンを角丸（ピル型）に */
+    border-radius: 50px; 
     transition: background-color 0.3s, box-shadow 0.3s;
     text-transform: uppercase;
     box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
@@ -407,9 +423,8 @@ button:hover {
 #ad-space {
     margin: 2.5em 0;
     padding: 1.5em;
-    background-color: #2a2a2a;
-    border: 1px dashed #777;
-    border-radius: 2px;
+    background-color: transparent; /* 背景を透明に */
+    border: none; /* 枠線を削除 */
     color: #888;
 }
 .ad-item:not(:last-child) {
@@ -423,7 +438,7 @@ button:hover {
     max-width: 700px;
     margin: 2.5em auto 0;
     padding-top: 1.5em;
-    border-top: 1px dashed #555;
+    border-top: 1px solid #444; /* 境界線を少し薄く */
     font-style: italic;
 }
 
@@ -444,7 +459,7 @@ button:hover {
 .loading-box {
     background-color: #2a2a2a;
     padding: 2em;
-    border-radius: 4px;
+    border-radius: 12px; /* 角を丸く */
     border: 1px solid #5d3a9b;
     text-align: center;
     max-width: 90%;
@@ -465,7 +480,7 @@ button:hover {
     padding: 1em;
     background-color: #1a1a1a;
     border: 1px dashed #555;
-    border-radius: 2px;
+    border-radius: 8px; /* 角を丸く */
 }
 
 .spinner {
